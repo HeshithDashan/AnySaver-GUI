@@ -4,33 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnySaver Pro</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <div class="container">
-            <header>
-                <h1>AnySaver <span>Pro</span> 🚀</h1>
-                <p>Download your favorite videos instantly</p>
-            </header>
+    <div class="container">
+        <header>
+            <h1>AnySaver <span>Pro</span> 🚀</h1>
+            <p>Download your favorite videos instantly</p>
+        </header>
 
-            <div class="input-group">
-                <input id="videoUrl" type="text" placeholder="https://youtube.com/..." autofocus />
-                <button onclick="download()">Download</button>
-            </div>
-
-            <div id="progress-container" class="hidden">
-                <div class="status-text">
-                    <span id="status">පොඩ්ඩක් ඉන්න...</span>
-                    <span id="percent">0%</span>
-                </div>
-                <div class="progress-bar">
-                    <div id="progress-fill" style="width: 0%"></div>
-                </div>
-            </div>
-
-            <div id="result" class="result-box hidden"></div>
+        <div class="input-group">
+            <input id="videoUrl" type="text" placeholder="Paste link here..." autofocus />
+            <button onclick="download()">Download Now</button>
         </div>
+
+        <div id="progress-container">
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+            <div class="status-text">
+                <span id="status">Ready to download</span>
+                <span id="percent"></span>
+            </div>
+        </div>
+
+        <div id="result" class="result-box"></div>
     </div>
     <script src="/src/main.js"></script>
 </body>
