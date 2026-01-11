@@ -2,19 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AnySaver GUI</title>
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnySaver Pro</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
 <body>
     <div id="app">
-        <h1>AnySaver 🚀</h1>
-        <p>වීඩියෝ ලින්ක් එක මෙතනට පේස්ට් කරන්න:</p>
-        
-        <input id="videoUrl" type="text" placeholder="https://..." style="width: 80%; padding: 10px;" autofocus />
-        <button onclick="download()" style="padding: 10px;">Download</button>
+        <div class="container">
+            <header>
+                <h1>AnySaver <span>Pro</span> 🚀</h1>
+                <p>Download your favorite videos instantly</p>
+            </header>
 
-        <h3 id="result">පොඩ්ඩක් ඉන්න...</h3>
+            <div class="input-group">
+                <input id="videoUrl" type="text" placeholder="https://youtube.com/..." autofocus />
+                <button onclick="download()">Download</button>
+            </div>
+
+            <div id="progress-container" class="hidden">
+                <div class="status-text">
+                    <span id="status">පොඩ්ඩක් ඉන්න...</span>
+                    <span id="percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div id="result" class="result-box hidden"></div>
+        </div>
     </div>
-
     <script src="/src/main.js"></script>
 </body>
 </html>
