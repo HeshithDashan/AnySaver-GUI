@@ -9,5 +9,9 @@
   "author": {
     "name": "Heshith",
     "email": "heshithdashan24@gmail.com"
-  }
+  },
+  "width": 550,
+  "height": 400,
+  "disableResize": true,
+  "backgroundColour": { "r": 15, "g": 23, "b": 42, "a": 255 }
 }
