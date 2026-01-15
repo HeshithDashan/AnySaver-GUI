@@ -1,3 +1,5 @@
+let currentSavePath = "";
+
 window.runtime.EventsOn("download-progress", (percent) => {
     const fill = document.getElementById("progress-fill");
     const percentText = document.getElementById("percent");
@@ -16,6 +18,18 @@ window.runtime.EventsOn("download-progress", (percent) => {
     }
 });
 
+window.selectFolder = function () {
+    window.go.main.App.SelectFolder().then((path) => {
+        if (path) {
+            currentSavePath = path;
+
+            document.getElementById("selectedPath").innerText = path;
+        }
+    }).catch((err) => {
+        console.error("Folder selection failed:", err);
+    });
+};
+
 window.download = function () {
     let url = document.getElementById("videoUrl").value;
     
@@ -32,7 +46,7 @@ window.download = function () {
     if (percentText) percentText.innerText = "0%";
     if (statusText) statusText.innerText = "විස්තර ලබාගනිමින්...";
 
-    window.go.main.App.DownloadVideo(url).then((result) => {
+    window.go.main.App.DownloadVideo(url, currentSavePath).then((result) => {
         if (statusText) {
             statusText.innerText = result;
         }
