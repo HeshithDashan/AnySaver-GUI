@@ -22,7 +22,6 @@ window.selectFolder = function () {
     window.go.main.App.SelectFolder().then((path) => {
         if (path) {
             currentSavePath = path;
-
             document.getElementById("selectedPath").innerText = path;
         }
     }).catch((err) => {
@@ -32,7 +31,7 @@ window.selectFolder = function () {
 
 window.download = function () {
     let url = document.getElementById("videoUrl").value;
-    
+
     if (url === "") {
         alert("කරුණාකර ලින්ක් එකක් ඇතුළත් කරන්න!");
         return;
@@ -48,7 +47,14 @@ window.download = function () {
 
     window.go.main.App.DownloadVideo(url, currentSavePath).then((result) => {
         if (statusText) {
-            statusText.innerText = result;
+
+            statusText.innerHTML = `
+                <div style="margin-bottom: 10px;">✅ ${result}</div>
+                <button onclick="window.runtime.BrowserOpenURL('file://' + '${currentSavePath.replace(/\\/g, '/')}')" 
+                        class="folder-btn" style="padding: 5px 10px; font-size: 0.8rem;">
+                    📂 Open Folder
+                </button>
+            `;
         }
 
         if (fill) fill.style.width = "100%";
